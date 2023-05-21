@@ -57,11 +57,13 @@ function Summary() {
         isClosable: true,
         position: 'top',
     })
+    let authToken=localStorage.getItem('token');
+  let headers={'authorization': `Bearer ${authToken}`}
     axios.post(`${process.env.REACT_APP_AI_URL}/summary`,{text},{headers})
     .then((res)=>{console.log(res)
       setOutput(res.data);
+      userIsLoggedIn(authToken,dispatch)
     })
-    userIsLoggedIn(authToken,dispatch)
   }else{
     toast({
       title: 'Unable to get results',

@@ -19,7 +19,7 @@ export default function Footer() {
                     <i className="fa-brands fa-linkedin"></i>
                     <i className="fa-brands fa-square-twitter"></i>
                 </Box>
-                <Text align="center" width="100%" background="black" color="white"> Copyright @2023 <Text color="teal" display="inline">Kraken.AI</Text></Text>
+                <Text align="center" width="100%" background="black" color="white"> Copyright © 2023 <Text color="teal" display="inline">Kraken.AI</Text></Text>
             </Flex>
     </>
   )

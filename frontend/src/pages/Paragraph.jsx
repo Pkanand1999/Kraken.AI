@@ -21,15 +21,14 @@ Button,
 export default function Paragraph() {
   let [text, setText] = React.useState('')
   let [output, setOutput] = React.useState('')
-  const toast = useToast()
   const dispatch=useDispatch();
+  const toast = useToast()
 
   const userData=useSelector((data)=>{
     return data.reducerAuth
   })
 
-  let authToken=localStorage.getItem('token');
-  let headers={'authorization': `Bearer ${authToken}`}
+  
 
   let handleInputChange = (e) => {
     let inputValue = e.target.value
@@ -57,11 +56,13 @@ export default function Paragraph() {
         isClosable: true,
         position: 'top',
     })
+    let authToken=localStorage.getItem('token');
+  let headers={'authorization': `Bearer ${authToken}`}
     axios.post(`${process.env.REACT_APP_AI_URL}/paragraph`,{text},{headers})
     .then((res)=>{console.log(res)
       setOutput(res.data);
+      userIsLoggedIn(authToken,dispatch)
     })
-    userIsLoggedIn(authToken,dispatch)
   }else{
     toast({
       title: 'Unable to get results',

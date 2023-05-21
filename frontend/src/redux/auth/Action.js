@@ -9,6 +9,7 @@ export function ChangeTheme(bg, color, dispatch) {
 }
 
 export function userIsLoggedIn(authToken,dispatch){
+  console.log("user is logged in")
     fetch(`${process.env.REACT_APP_AUTH_URL}/loggedInUser`, {
         headers: {
           'authorization': `Bearer ${authToken}`

@@ -14,9 +14,7 @@ export default function Scifi() {
   const [text, setText] = useState('');
   const toast = useToast()
   const dispatch=useDispatch();
-const image="https://cdn-icons-png.flaticon.com/512/136/136524.png"
-let authToken=localStorage.getItem('token');
-let headers={'authorization': `Bearer ${authToken}`}
+
   const userData=useSelector((data)=>{
     return data.reducerAuth
 })
@@ -26,16 +24,17 @@ const handleSubmit = () => {
   if(userData.credit>0){
   setIsLoading(true);
   setTimeout(()=>{
-    
+    let authToken=localStorage.getItem('token');
+let headers={'authorization': `Bearer ${authToken}`}
     axios.post(`${process.env.REACT_APP_AI_URL}/scifi-image`,{text},{headers})
     .then((res)=>{console.log(res)
       setImageUrl(res.data);
       setIsLoading(false);
+      userIsLoggedIn(authToken,dispatch)
     })
     .catch((err)=>{console.log(err)})
 },2000)
   setText('');
-  userIsLoggedIn(authToken,dispatch)
 }else{
   toast({
     title: 'Unable to get results',

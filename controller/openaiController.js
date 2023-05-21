@@ -8,7 +8,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 exports.summaryController = async (req, res) => {
-  console.log("summary")
   try {
     let user =await req.verification;
     var credit= Number(user.credit)-1
@@ -23,7 +22,6 @@ exports.summaryController = async (req, res) => {
       max_tokens: 500,
       temperature: 0.5,
     });
-    console.log(data)
     if (data) {
       if (data.choices[0].text) {
         return res.status(200).json(data.choices[0].text);
