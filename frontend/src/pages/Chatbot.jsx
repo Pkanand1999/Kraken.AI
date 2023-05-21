@@ -124,7 +124,9 @@ useEffect(() => {
     </Box>
 
     {/* Chat input */}
-    <Flex align="center" mt={4} width="90%">
+    <Flex align="center" mt={4} width="90%"
+    //  position="fixed" bg="#060606" bottom="3%"
+     >
       <div style={{ position: "relative", width: "100%" }}>
         <Input
           placeholder="Type your message..."
