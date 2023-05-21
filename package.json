@@ -23,5 +23,14 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "openai": "^3.2.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pkanand1999/Kraken.AI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pkanand1999/Kraken.AI/issues"
+  },
+  "homepage": "https://github.com/Pkanand1999/Kraken.AI#readme"
 }
