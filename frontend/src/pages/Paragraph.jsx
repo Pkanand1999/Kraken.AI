@@ -21,6 +21,7 @@ Button,
 export default function Paragraph() {
   let [text, setText] = React.useState('')
   let [output, setOutput] = React.useState('')
+  const typingSpeed = 40;
   const dispatch=useDispatch();
   const toast = useToast()
 
@@ -46,6 +47,22 @@ export default function Paragraph() {
   })
   }
 
+
+  function simulateTypingEffect(text) {
+    
+    let index = -1;
+    function typeNextCharacter() {
+      setOutput(prevOutput => prevOutput + text.charAt(index));
+      index++;
+  
+      if (index < text.length) {
+        setTimeout(typeNextCharacter, typingSpeed);
+      }
+    }
+  
+    typeNextCharacter();
+  }
+
   function handleGenerate(){
     if(userData.credit>0){
       toast({
@@ -60,7 +77,8 @@ export default function Paragraph() {
   let headers={'authorization': `Bearer ${authToken}`}
     axios.post(`${process.env.REACT_APP_AI_URL}/paragraph`,{text},{headers})
     .then((res)=>{console.log(res)
-      setOutput(res.data);
+      simulateTypingEffect(res.data);
+      // setOutput(res.data);
       userIsLoggedIn(authToken,dispatch)
     })
   }else{

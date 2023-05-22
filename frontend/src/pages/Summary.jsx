@@ -21,6 +21,7 @@ Button,
 function Summary() {
   let [text, setText] = React.useState('')
   let [output, setOutput] = React.useState('')
+  const typingSpeed = 40;
   const toast = useToast()
   const dispatch=useDispatch();
 
@@ -47,6 +48,22 @@ function Summary() {
   })
   }
 
+
+  function simulateTypingEffect(text) {
+    
+    let index = -1;
+    function typeNextCharacter() {
+      setOutput(prevOutput => prevOutput + text.charAt(index));
+      index++;
+  
+      if (index < text.length) {
+        setTimeout(typeNextCharacter, typingSpeed);
+      }
+    }
+  
+    typeNextCharacter();
+  }
+
   function handleGenerate(){
     if(userData.credit>0){
       toast({
@@ -61,7 +78,8 @@ function Summary() {
   let headers={'authorization': `Bearer ${authToken}`}
     axios.post(`${process.env.REACT_APP_AI_URL}/summary`,{text},{headers})
     .then((res)=>{console.log(res)
-      setOutput(res.data);
+      // setOutput(res.data);
+      simulateTypingEffect(res.data);
       userIsLoggedIn(authToken,dispatch)
     })
   }else{

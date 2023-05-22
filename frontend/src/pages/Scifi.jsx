@@ -79,7 +79,7 @@ let headers={'authorization': `Bearer ${authToken}`}
             >
               <img style={{width:"100%",}} src={imageUrl} download/>
             </Box>
-            <a href={imageUrl} isDownload>
+            <a href={imageUrl} download>
             <Button
               // position="absolute"
               // bottom="1rem"

@@ -92,6 +92,7 @@ useEffect(() => {
       Chat with Kraken
     </Heading>
     <Box
+    className='scrolling'
       height="460px"
       width="90%"
       margin="auto"
