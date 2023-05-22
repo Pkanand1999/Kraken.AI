@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "npm"
+    "build": "npm install"
   },
   "keywords": [],
   "author": "",
