@@ -89,11 +89,11 @@ function Navbar() {
 
                     <DrawerBody>
                         <Stack spacing='24px'>
-                            <Link to="/" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl'>Home</Text></Link>
-                            <Link to="/summary" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl'>Summary.Ai</Text></Link>
-                            <Link to="/paragraph" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Paragraph.Ai</Text></Link>
-                            <Link to="/scifi" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Scifi-Image.Ai</Text></Link>
-                            <Link to="/chatbot" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Chatbot.Ai</Text></Link>
+                            {userData.isAuth ?<Link to="/" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl'>Home</Text></Link>:""}
+                            {userData.isAuth ?<Link to="/summary" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl'>Summary.Ai</Text></Link>:""}
+                            {userData.isAuth ?<Link to="/paragraph" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Paragraph.Ai</Text></Link>:""}
+                            {userData.isAuth ?<Link to="/scifi" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Scifi-Image.Ai</Text></Link>:""}
+                            {userData.isAuth ?<Link to="/chatbot" onClick={onClose2} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Chatbot.Ai</Text></Link>:""}
                             {/* <Link href="/login" onClick={onClose} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Login</Text></Link>
                             <Link href="/signup" onClick={onClose} _hover={{color: "teal" }}><Text as='b' fontSize='2xl' >Login</Text></Link> */}
                             {userData.isAuth ? "" : <Link to="" ><Login onClose2={onClose2}/></Link>}

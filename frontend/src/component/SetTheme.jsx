@@ -30,7 +30,6 @@ const dispatch=useDispatch();
     const [bgcolour, setColour] = useState("")
     const [colour, setColor] = useState("")
    
-   
   
    
 
