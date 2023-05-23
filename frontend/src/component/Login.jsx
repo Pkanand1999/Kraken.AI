@@ -71,7 +71,7 @@ export default function Login({onClose2}) {
            })
            toast({
             title: 'Login Error',
-            description: "Email or Password may be wrong",
+            description: "Email or Password may be wrong or You need to signpu first.",
             status: 'error',
             duration: 3000,
             isClosable: true,

@@ -149,7 +149,7 @@ const toast = useToast()
                 Sign Up
               </Button>
             </ModalFooter>
-            <GoogleLoginButton style={{width:"50%",display:"flex", margin:"auto",marginBottom:"10%"}} onClick={loging} />
+            <GoogleLoginButton style={{width:"80%",display:"flex", margin:"auto",marginBottom:"10%"}} onClick={loging} />
           </ModalContent>
         </Modal>
       </>
