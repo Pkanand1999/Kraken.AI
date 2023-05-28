@@ -106,6 +106,7 @@ useEffect(() => {
         {chat.map((message, index) => (
           <Box
             key={index}
+            maxWidth="60%"
             bg={index % 2 === 0 ? "blue.500" : "green.400"}
             color="white"
             borderRadius="md"
