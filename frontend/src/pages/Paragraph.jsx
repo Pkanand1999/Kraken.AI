@@ -78,7 +78,6 @@ export default function Paragraph() {
     axios.post(`${process.env.REACT_APP_AI_URL}/paragraph`,{text},{headers})
     .then((res)=>{console.log(res)
       simulateTypingEffect(res.data);
-      // setOutput(res.data);
       userIsLoggedIn(authToken,dispatch)
     })
   }else{
